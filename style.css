@@ -1,0 +1,110 @@
+/* Reset de margen y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para el body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px; /* Fuente base para el cuerpo del texto */
+}
+
+/* Estilo para los anclajes */
+a {
+    text-decoration: none; /* Eliminar el subrayado */
+    color: inherit; /* Heredar el color del texto circundante */
+}
+
+/* Estilo para la sección principal */
+.main-section, .second-section {
+    width: 100%;
+    margin: 0;
+}
+
+/* Estilo para el contenido del artículo */
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Asegurarse de que la imagen ocupe el ancho completo del contenedor */
+.img-cont {
+    order: -1; /* Mueve el picture al principio */
+    width: 100%;
+    position: relative;
+    padding-top: 66.67%; /* Proporción 3:2 */
+}
+
+.img-cont img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilo para el contenedor de texto */
+.text-cont {
+    padding: 10px;
+}
+
+/* Estilo para el título */
+.title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el subtítulo */
+.sub-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el autor */
+.author {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Estilo para el trabajo del autor */
+.author-job {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* Estilo para el nombre del autor */
+.author-name {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* Estilo para la imagen del autor */
+.author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none; /* No mostrar en mobile */
+}
+
+/* Media Query para dispositivos más grandes */
+@media (min-width: 600px) {
+    .main-section, .second-section {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .text-cont {
+        padding: 20px;
+    }
+
+    .author img {
+        display: block; /* Mostrar la imagen del autor en pantallas más grandes */
+    }
+}

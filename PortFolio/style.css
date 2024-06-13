@@ -1,0 +1,93 @@
+/* Estilo básico para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Lista de navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Elementos de la lista de navegación */
+nav ul li {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Enlaces de navegación */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Sección de presentación */
+#hero {
+    background: #f4f4f4;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Títulos principales */
+h1 {
+    margin: 0 0 1rem 0;
+}
+
+/* Sección "Sobre Mí" */
+#about {
+    padding: 2rem;
+    background: #e2e2e2;
+}
+
+/* Sección "Proyectos" */
+#projects {
+    padding: 2rem;
+}
+
+/* Estilo para cada proyecto */
+.project {
+    margin-bottom: 2rem;
+}
+
+/* Sección de contacto */
+#contact {
+    padding: 2rem;
+    background: #e2e2e2;
+    text-align: center;
+}
+
+/* Estilo para el pie de página */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    position: relative; /* Cambiado de fixed a relative para dispositivos móviles */
+}
+
+/* Media query para pantallas más grandes */
+@media (min-width: 768px) {
+    /* Elementos de la lista de navegación */
+    nav ul li {
+        display: inline;
+        margin-right: 1rem;
+    }
+
+    /* Estilo para el pie de página */
+    footer {
+        position: fixed; /* Cambiado a fixed para pantallas más grandes */
+        bottom: 0;
+    }
+}

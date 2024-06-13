@@ -1,0 +1,129 @@
+1. Cuerpo de la Página:
+   - Define la fuente básica, los márgenes, el padding y la altura de línea para el cuerpo de la página.
+     ```
+     body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         line-height: 1.6;
+     }
+     ```
+
+2. Barra de Navegación:
+   - `nav`: Estilo básico para la barra de navegación.
+     ```
+     nav {
+         background: #333;
+         color: #fff;
+         padding: 1rem;
+         text-align: center;
+     }
+     ```
+
+   - `nav ul`: Elimina el estilo de lista y el padding.
+     ```
+     nav ul {
+         list-style: none;
+         padding: 0;
+     }
+     ```
+
+   - `nav ul li`: Los elementos de la lista de navegación se muestran como bloques con un margen inferior.
+     ```
+     nav ul li {
+         display: block;
+         margin-bottom: 0.5rem;
+     }
+     ```
+
+   - `nav ul li a`: Estilo para los enlaces de la barra de navegación.
+     ```
+     nav ul li a {
+         color: #fff;
+         text-decoration: none;
+     }
+     ```
+
+3. Sección de Presentación (Hero):
+   - `#hero`: Estilo para la sección de presentación, con fondo claro y padding.
+     ```
+     #hero {
+         background: #f4f4f4;
+         padding: 2rem;
+         text-align: center;
+     }
+     ```
+
+4. Títulos Principales:
+   - `h1`: Estilo para los títulos principales, con margen inferior.
+     ```
+     h1 {
+         margin: 0 0 1rem 0;
+     }
+     ```
+
+5. Sección "Sobre Mí":
+   - `#about`: Padding y fondo claro para la sección "Sobre Mí".
+     ```
+     #about {
+         padding: 2rem;
+         background: #e2e2e2;
+     }
+     ```
+
+6. Sección "Proyectos":
+   - `#projects`: Padding para la sección "Proyectos".
+     ```
+     #projects {
+         padding: 2rem;
+     }
+     ```
+
+   - `.project`: Margen inferior para cada proyecto.
+     ```
+     .project {
+         margin-bottom: 2rem;
+     }
+     ```
+
+7. Sección de Contacto:
+   - `#contact`: Padding, fondo claro y centrado del texto para la sección de contacto.
+     ```
+     #contact {
+         padding: 2rem;
+         background: #e2e2e2;
+         text-align: center;
+     }
+     ```
+
+8. Pie de Página:
+   - `footer`: Estilo básico para el pie de página, con fondo oscuro, texto blanco y centrado. La posición es relativa para dispositivos móviles para evitar problemas de superposición.
+     ```
+     footer {
+         background: #333;
+         color: #fff;
+         text-align: center;
+         padding: 1rem;
+         width: 100%;
+         position: relative; /* Cambiado de fixed a relative para dispositivos móviles */
+     }
+     ```
+
+9. Media Query para Pantallas Más Grandes:
+   - Cambia los elementos de la lista de navegación a `inline` y agrega margen derecho.
+     ```
+     @media (min-width: 768px) {
+         nav ul li {
+             display: inline;
+             margin-right: 1rem;
+         }
+     ```
+
+   - Cambia la posición del pie de página a `fixed` para pantallas más grandes.
+     ```
+         footer {
+             position: fixed; /* Cambiado a fixed para pantallas más grandes */
+             bottom: 0;
+         }
+     }
+     ```

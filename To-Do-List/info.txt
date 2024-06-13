@@ -1,0 +1,119 @@
+1. Cuerpo de la Página:
+   - Define la fuente básica, los márgenes, el padding y la disposición de los elementos del cuerpo de la página.
+     ```
+     body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         background: #f4f4f4;
+     }
+     ```
+
+2. Encabezado de la Aplicación:
+   - `header`: Estilo básico para el encabezado de la aplicación.
+     ```
+     header {
+         background: #333;
+         color: #fff;
+         padding: 1rem;
+         width: 100%;
+         text-align: center;
+     }
+     ```
+
+3. Formulario de Agregar Tareas:
+   - `form`: Margen y disposición del formulario. Ajustado para que sea flexible y en columna en dispositivos móviles.
+     ```
+     form {
+         margin: 2rem 0;
+         width: 90%;
+         max-width: 600px;
+         display: flex;
+         flex-direction: column;
+     }
+     ```
+
+   - `#task-input`: Estilo del campo de entrada de texto, con padding y margen inferior.
+     ```
+     #task-input {
+         padding: 0.5rem;
+         font-size: 1rem;
+         margin-bottom: 0.5rem;
+     }
+     ```
+
+   - `button`: Estilo del botón de agregar tareas, ajustado para que ocupe todo el ancho del formulario en dispositivos móviles.
+     ```
+     button {
+         padding: 0.5rem;
+         font-size: 1rem;
+         background: #333;
+         color: #fff;
+         border: none;
+         cursor: pointer;
+         width: 100%;
+     }
+     ```
+
+4. Lista de Tareas:
+   - `#task-list`: Estilo de la lista de tareas, eliminando el estilo de lista y padding.
+     ```
+     #task-list {
+         list-style: none;
+         padding: 0;
+         width: 90%;
+         max-width: 600px;
+     }
+     ```
+
+5. Estilo para Cada Tarea Individual:
+   - `.task-item`: Estilo para cada tarea, con fondo blanco, padding, margen, disposición en flex y bordes redondeados.
+     ```
+     .task-item {
+         background: #fff;
+         padding: 1rem;
+         margin: 0.5rem 0;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         border-radius: 5px;
+     }
+     ```
+
+6. Botón de Eliminar Tarea:
+   - `.delete-btn`: Estilo para el botón de eliminar tarea, con fondo rojo, texto blanco, padding y bordes redondeados.
+     ```
+     .delete-btn {
+         background: #ff4d4d;
+         color: #fff;
+         border: none;
+         padding: 0.5rem;
+         cursor: pointer;
+         border-radius: 5px;
+     }
+     ```
+
+7. Media Query para Pantallas Más Grandes:
+   - Ajusta el formulario para que los elementos se dispongan en una fila y se alineen al centro.
+     ```
+     @media (min-width: 768px) {
+         form {
+             flex-direction: row;
+             align-items: center;
+         }
+
+         #task-input {
+             margin-bottom: 0;
+             margin-right: 0.5rem;
+             flex: 1;
+         }
+
+         button {
+             width: auto;
+             margin-left: 0.5rem;
+         }
+     }
+     ```
