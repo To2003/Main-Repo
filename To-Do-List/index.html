@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación de Tareas</title>
-    <!-- Enlace al archivo CSS externo -->
+    <title>To-Do List like Apple's Reminders</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Encabezado de la aplicación -->
-    <header>
-        <h1>Aplicación de Tareas</h1>
-    </header>
-
-    <!-- Formulario para agregar nuevas tareas -->
-    <section>
-        <form id="task-form">
-            <input type="text" id="task-input" placeholder="Añadir una nueva tarea">
-            <button type="submit">Añadir</button>
+    <div class="todoapp">
+        <header class="header">
+            <h1>My To-Do List</h1>
+        </header>
+        <form id="todo-form">
+            <input type="text" id="new-task" placeholder="Agregar nuevas Tareas...">
+            <button type="submit">Agregar</button>
         </form>
-    </section>
-
-    <!-- Lista de tareas -->
-    <section>
-        <ul id="task-list"></ul>
-    </section>
-
-    <!-- Enlace al archivo JavaScript externo -->
-    <script src="scripts.js"></script>
+        <div class="task-controls">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="active">Activos</button>
+            <button class="filter-btn" data-filter="completed">Completados</button>
+        </div>
+        <ul class="task-list" id="task-list">
+            <!-- Aquí se agregarán dinámicamente las tareas -->
+        </ul>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
