@@ -1,44 +1,97 @@
-// Espera a que el contenido del DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-    const weatherForm = document.getElementById('weather-form'); // Selecciona el formulario del clima
-    const cityInput = document.getElementById('city-input'); // Selecciona el campo de entrada de la ciudad
-    const cityName = document.getElementById('city-name'); // Selecciona el elemento para el nombre de la ciudad
-    const temperature = document.getElementById('temperature'); // Selecciona el elemento para la temperatura
-    const description = document.getElementById('description'); // Selecciona el elemento para la descripción del clima
+document.getElementById('weather-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const city = document.getElementById('city-input').value;
+    const apiKey = '7b6ac094be734700c5030c6f3ba950d1'; // Tu propia clave de API de OpenWeatherMap
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=es&units=metric`;
 
-    // Añade un evento de envío al formulario
-    weatherForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Evita el comportamiento predeterminado del formulario
 
-        // Obtiene el valor del campo de entrada
-        const city = cityInput.value.trim();
+    // Realizar una solicitud fetch a la API de OpenWeatherMap
+    fetch(url)
+        .then(response => response.json()) // Convertir la respuesta en un objeto JSON
+        .then(data => {
+            // Si la respuesta es exitosa (código 200)
+            if (data.cod === 200) {
+                // Actualizar el contenido del clima actual
+                document.getElementById('city-name').textContent = data.name;
+                document.getElementById('temperature').textContent = `Temperatura: ${data.main.temp}°C`;
+                document.getElementById('description').textContent = `Clima: ${data.weather[0].description}`;
+                document.getElementById('humidity').textContent = `Humedad: ${data.main.humidity}%`;
+                document.getElementById('wind').textContent = `Velocidad del viento: ${data.wind.speed} m/s`;
 
-        // Si el campo de entrada no está vacío, busca el clima de la ciudad
-        if (city !== '') {
-            fetchWeather(city);
-            cityInput.value = ''; // Limpia el campo de entrada
-        }
-    });
+                // Obtener y mostrar el icono del clima
+                const iconCode = data.weather[0].icon;
+                const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+                document.getElementById('weather-icon').src = iconUrl;
 
-    // Función para buscar el clima de una ciudad
-    function fetchWeather(city) {
-        const apiKey = '7b6ac094be734700c5030c6f3ba950d1'; // Tu propia clave de API de OpenWeatherMap
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=es`;
+                // Mostrar la sección del clima actual
+                document.getElementById('current-weather-display').classList.remove('hidden');
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                // Muestra los datos del clima
-                cityName.textContent = data.name;
-                temperature.textContent = `Temperatura: ${data.main.temp}°C`;
-                description.textContent = `Descripción: ${data.weather[0].description}`;
-            })
-            .catch(error => {
-                // Maneja cualquier error
-                cityName.textContent = 'Ciudad no encontrada';
-                temperature.textContent = '';
-                description.textContent = '';
-                console.error('Error al obtener el clima:', error);
-            });
-    }
+                // Añadir los datos al historial de búsquedas
+                addToHistory(data);
+
+            } else {
+                // Manejo de errores cuando la ciudad no es encontrada
+                document.getElementById('city-name').textContent = 'Ciudad no encontrada';
+                document.getElementById('temperature').textContent = '';
+                document.getElementById('description').textContent = '';
+                document.getElementById('humidity').textContent = '';
+                document.getElementById('wind').textContent = '';
+                document.getElementById('weather-icon').src = '';
+
+                document.getElementById('current-weather-display').classList.add('hidden');
+            }
+        })
+        .catch(error => {
+            // Manejo de errores en la solicitud fetch
+            console.error('Error fetching the weather data:', error);
+            document.getElementById('city-name').textContent = 'Error al obtener los datos del clima';
+            document.getElementById('temperature').textContent = '';
+            document.getElementById('description').textContent = '';
+            document.getElementById('humidity').textContent = '';
+            document.getElementById('wind').textContent = '';
+            document.getElementById('weather-icon').src = '';
+
+            document.getElementById('current-weather-display').classList.add('hidden');
+        });
 });
+
+// Función para añadir los datos del clima al historial de búsquedas
+function addToHistory(data) {
+    const historyGrid = document.getElementById('history-grid'); // Obtener el contenedor del historial
+
+    // Crear una nueva tarjeta de historial
+    const historyItem = document.createElement('div');
+    historyItem.classList.add('history-item');
+
+    // Crear y configurar los elementos de la tarjeta
+    const cityName = document.createElement('h4');
+    cityName.textContent = data.name;
+
+    const icon = document.createElement('img');
+    const iconCode = data.weather[0].icon;
+    const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+    icon.src = iconUrl;
+
+    const temp = document.createElement('p');
+    temp.textContent = `Temperatura: ${data.main.temp}°C`;
+
+    const desc = document.createElement('p');
+    desc.textContent = `Clima: ${data.weather[0].description}`;
+
+    const humidity = document.createElement('p');
+    humidity.textContent = `Humedad: ${data.main.humidity}%`;
+
+    const wind = document.createElement('p');
+    wind.textContent = `Velocidad del viento: ${data.wind.speed} m/s`;
+
+    // Añadir los elementos a la tarjeta de historial
+    historyItem.appendChild(cityName);
+    historyItem.appendChild(icon);
+    historyItem.appendChild(temp);
+    historyItem.appendChild(desc);
+    historyItem.appendChild(humidity);
+    historyItem.appendChild(wind);
+
+    // Añadir la tarjeta al contenedor del historial
+    historyGrid.appendChild(historyItem);
+}

@@ -21,38 +21,34 @@ header {
 /* Estilo para el formulario de búsqueda */
 form {
     margin: 2rem 0;
-    width: 90%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Estilo para el campo de entrada de texto */
 #city-input {
     padding: 0.5rem;
     font-size: 1rem;
-    margin-bottom: 0.5rem;
 }
 
 /* Estilo para el botón de búsqueda */
 button {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
+    margin-left: 0.5rem;
     background: #333;
     color: #fff;
     border: none;
     cursor: pointer;
-    width: 100%;
 }
 
-/* Sección para mostrar el clima */
-#weather-display {
+/* Sección para mostrar el clima actual */
+#current-weather-display {
     background: #fff;
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
-    width: 90%;
+    width: 80%;
     max-width: 600px;
+    margin-bottom: 2rem;
 }
 
 /* Título del nombre de la ciudad */
@@ -72,21 +68,25 @@ button {
     color: #555;
 }
 
-/* Media query para pantallas más grandes */
-@media (min-width: 768px) {
-    form {
-        flex-direction: row;
-        align-items: center;
-    }
+/* Estilo para el historial de búsquedas */
+#history {
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
 
-    #city-input {
-        margin-bottom: 0;
-        margin-right: 0.5rem;
-        flex: 1;
-    }
+/* Grid para el historial de tarjetas */
+#history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
 
-    button {
-        width: auto;
-        margin-left: 0.5rem;
-    }
+/* Estilo para cada tarjeta de historial */
+.history-item {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

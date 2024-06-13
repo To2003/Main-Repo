@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación del Clima</title>
-    <!-- Enlace al archivo CSS externo -->
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Encabezado de la aplicación -->
     <header>
-        <h1>Aplicación del Clima</h1>
+        <h1>Weather App</h1>
     </header>
-
-    <!-- Formulario para buscar el clima por ciudad -->
-    <section>
-        <form id="weather-form">
-            <input type="text" id="city-input" placeholder="Introduce una ciudad">
-            <button type="submit">Buscar</button>
-        </form>
-    </section>
-
-    <!-- Sección para mostrar el clima -->
-    <section id="weather-display">
+    <form id="weather-form">
+        <input type="text" id="city-input" placeholder="Nombre de la Ciudad">
+        <button type="submit">Buscar Clima</button>
+    </form>
+    <div id="current-weather-display" class="weather-display hidden">
         <h2 id="city-name"></h2>
+        <img id="weather-icon" alt="Weather Icon">
         <p id="temperature"></p>
         <p id="description"></p>
-    </section>
-
-    <!-- Enlace al archivo JavaScript externo -->
-    <script src="scripts.js"></script>
+        <p id="humidity"></p>
+        <p id="wind"></p>
+    </div>
+    <div id="history">
+        <h3>Historial de Búsquedas</h3>
+        <div id="history-grid"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
