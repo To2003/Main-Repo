@@ -1,0 +1,113 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente general para el cuerpo de la página */
+    margin: 0; /* Eliminar márgenes por defecto */
+    padding: 0; /* Eliminar padding por defecto */
+    background-color: #f4f4f4; /* Fondo gris claro para toda la página */
+    display: flex; /* Usar flexbox para el layout del body */
+    flex-direction: column; /* Alinear elementos en una columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+}
+
+.container {
+    width: 100%; /* Ancho completo del contenedor */
+    padding: 0 20px; /* Padding lateral */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+}
+
+header { /* Estilos del Header */
+    background-color: #4CAF50; 
+    color: #fff; 
+    padding: 10px 0;
+    width: 100%; 
+    text-align: center; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+header h1 { /* Estilos del Titulo */
+    margin: 0; 
+    font-size: 24px; 
+    font-weight: 400;
+}
+
+main { /* Estilos del Main */
+    padding: 20px 0; 
+    display: flex; /* Usar flexbox para el layout del main */
+    justify-content: center; 
+    align-items: center; 
+    flex-grow: 1; /* Permitir que main crezca para llenar el espacio disponible */
+}
+
+#calculator { /* Estilos Calculadora Completa */
+    background-color: #333; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
+    width: 100%; 
+    max-width: 360px;
+    color: #fff;
+}
+
+.calculator-screen { /* Estilos del Screen */
+    background-color: #444; 
+    color: #fff; 
+    font-size: 2.5em; 
+    padding: 20px;
+    text-align: right; 
+    border-bottom: 1px solid #555;
+    min-height: 70px;
+}
+
+.calculator-buttons { /* Estilos del Div que encierra a los Botones */
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas de igual ancho */
+    gap: 10px; 
+    padding: 20px; 
+    background-color: #555; 
+}
+
+.btn { /* Estilos de los Botones */
+    background-color: #666; 
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    font-size: 1.5em; 
+    padding: 20px; 
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    transition: background-color 0.2s, transform 0.1s; /* Transiciones para hover y active */
+}
+
+.btn:hover {
+    background-color: #777; /* Hover Boton */
+}
+
+.btn:active {
+    transform: scale(0.95); /* Reducir tamaño al hacer clic en el botón */
+}
+
+.btn.zero {
+    grid-column: span 2; /* Anchura del botón de cero */
+}
+
+.btn.operator {
+    background-color: #FF9500; /* Fondo para los operadores */
+}
+
+.btn.operator:hover {
+    background-color: #FFB84D; /* Hover Botones */
+}
+
+.btn.operator:active {
+    background-color: #FF9500; 
+}
+
+footer { /* Estilos Footer */
+    background-color: #333; /* Fondo para el pie de página */
+    color: #fff; /* Color Texto */
+    text-align: center; /* Centrar texto del pie de página */
+    padding: 10px 0; /* Padding superior e inferior */
+    width: 100%; /* Ancho completo del pie de página */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra superior */
+}
+
